@@ -8,8 +8,8 @@ A Flutter package 💙 **100% native** to display a review collection in style [
 
 This package allows you to show a modal with a rating scale of 0 to 10, as well as optional fields for feedback and phone number. It is compatible with web, desktop and mobile platforms, and also supports the dark theme.
 
-<img src="images/nps.png" width="800" >
-<img src="images/feedback.png" width="800" >
+<img src="https://github.com/wellitonklein/wellitonklein/assets/17295513/1fd0cfda-5b80-471b-ab20-46cf6ca34552" width="800" >
+<img src="https://github.com/wellitonklein/wellitonklein/assets/17295513/af35ad4e-d663-45ec-8e32-ef5a6ad24b5e" width="800" >
 
 ## Installation
 
