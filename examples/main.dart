@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:nps_plugin/nps_plugin.dart';
 
@@ -42,7 +44,7 @@ class HomePage extends StatelessWidget {
               showInputPhone: false,
             );
             if (response == null) return;
-            print(response);
+            log(response.toString());
           },
         ),
       ),
