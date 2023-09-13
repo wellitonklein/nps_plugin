@@ -1,6 +1,6 @@
 name: nps_plugin
 description: A Flutter component that presents Net Promoter Score (NPS) survey.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/wellitonklein/nps_plugin
 
 environment:
