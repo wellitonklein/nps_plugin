@@ -1,3 +1,7 @@
+## 0.0.3
+
+* CHORE: Hosting images from the `README.md` file on github itself
+
 ## 0.0.2
 
 * CHORE: Configuring environment to adapt package publication
