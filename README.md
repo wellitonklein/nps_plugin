@@ -1,39 +1,60 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# NPS Plugin
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+<img src="images/nps.png" width="800" >
+<img src="images/feedback.png" width="800" >
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
-## Features
+Um pacote Flutter 💙 **100% nativo** para exibir uma coletar de avaliações no estilo [NPS (Net Promoter Score)](https://en.wikipedia.org/wiki/Net_promoter_score).
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Este pacote permite que você mostre um modal com uma escala de avaliação de 0 a 10, bem como campos opcionais para feedback e número de telefone. Ele é compatível com plataformas web, desktop e mobile, e também suporta o tema dark.
 
-## Getting started
+## Instalação
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Para usar este pacote, adicione `nps_plugin` como uma dependência em seu arquivo `pubspec.yaml`.
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```sh
+flutter pub add nps_plugin
 ```
 
-## Additional information
+Em seguida, importe o pacote em seu código:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+import 'package:nps_plugin/nps_plugin.dart';
+```
+
+## Uso
+Aqui está um exemplo básico de como usar o pacote para exibir o modal de avaliação NPS:
+
+```dart
+final response = await npsStart(
+  context,
+  npsTitle: 'Até o momento, qual é a probabilidade de você recomendar o ',
+  owner: 'Flutter',
+  feedbackTitle: 'Deixe as suas observações',
+  showInputPhone: false,
+);
+```
+
+Você pode personalizar o título, nome do sistema ou empresa e outras configurações conforme necessário.
+
+## Compatibilidade
+Este pacote é compatível com as seguintes plataformas:
+
+- Mobile (Android e iOS)
+- Web
+- Desktop (Windows, macOS e Linux)
+
+## Tema Dark
+Compatibilidade com o tema dark do Flutter. Ele se ajustará automaticamente ao tema do seu aplicativo.
+
+## Material 2 e 3
+Compatibilidade com as versões 2 e 3 do Material da google.
+
+## Contribuições e Problemas
+Este pacote é de código aberto e você é incentivado a relatar problemas ou enviar sugestões de melhorias através de issues no [GitHub Issues](https://github.com/wellitonklein/nps_plugin/issues).
+
+## Licença
+Este pacote é distribuído sob a licença MIT. Consulte o arquivo LICENSE para obter detalhes.
