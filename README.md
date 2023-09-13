@@ -1,60 +1,60 @@
 # NPS Plugin
 
-<img src="images/nps.png" width="800" >
-<img src="images/feedback.png" width="800" >
-
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
 
 ---
 
-Um pacote Flutter 💙 **100% nativo** para exibir uma coletar de avaliações no estilo [NPS (Net Promoter Score)](https://en.wikipedia.org/wiki/Net_promoter_score).
+A Flutter package 💙 **100% native** to display a review collection in style [NPS (Net Promoter Score)](https://en.wikipedia.org/wiki/Net_promoter_score).
 
-Este pacote permite que você mostre um modal com uma escala de avaliação de 0 a 10, bem como campos opcionais para feedback e número de telefone. Ele é compatível com plataformas web, desktop e mobile, e também suporta o tema dark.
+This package allows you to show a modal with a rating scale of 0 to 10, as well as optional fields for feedback and phone number. It is compatible with web, desktop and mobile platforms, and also supports the dark theme.
 
-## Instalação
+<img src="images/nps.png" width="800" >
+<img src="images/feedback.png" width="800" >
 
-Para usar este pacote, adicione `nps_plugin` como uma dependência em seu arquivo `pubspec.yaml`.
+## Installation
+
+To use this package, add `nps_plugin` as a dependency in your `pubspec.yaml` file.
 
 ```sh
 flutter pub add nps_plugin
 ```
 
-Em seguida, importe o pacote em seu código:
+Then import the package into your code:
 
 ```dart
 import 'package:nps_plugin/nps_plugin.dart';
 ```
 
-## Uso
-Aqui está um exemplo básico de como usar o pacote para exibir o modal de avaliação NPS:
+## How to use
+Here is a basic example of how to use the package to display the NPS rating modal:
 
 ```dart
-final response = await npsStart(
+await npsStart(
   context,
-  npsTitle: 'Até o momento, qual é a probabilidade de você recomendar o ',
+  npsTitle: 'So far, how likely are you to recommend the ',
   owner: 'Flutter',
-  feedbackTitle: 'Deixe as suas observações',
+  feedbackTitle: 'Leave your feedback',
   showInputPhone: false,
 );
 ```
 
-Você pode personalizar o título, nome do sistema ou empresa e outras configurações conforme necessário.
+You can customize the title, system or company name, and other settings as needed.
 
-## Compatibilidade
-Este pacote é compatível com as seguintes plataformas:
+## Compatibilities
+This package is compatible with the following platforms:
 
-- Mobile (Android e iOS)
+- Mobile (Android and iOS)
+- Desktop (Windows, macOS and Linux)
 - Web
-- Desktop (Windows, macOS e Linux)
 
-## Tema Dark
-Compatibilidade com o tema dark do Flutter. Ele se ajustará automaticamente ao tema do seu aplicativo.
+## Dark Theme
+Compatibility with Flutter's dark theme. It automatically adjusts to your app's theme.
 
 ## Material 2 e 3
-Compatibilidade com as versões 2 e 3 do Material da google.
+Compatibility with versions 2 and 3 of Google Material.
 
-## Contribuições e Problemas
-Este pacote é de código aberto e você é incentivado a relatar problemas ou enviar sugestões de melhorias através de issues no [GitHub Issues](https://github.com/wellitonklein/nps_plugin/issues).
+## Contributions and Problems
+This package is open source and you are encouraged to report problems or submit suggestions for improvements via issues on [GitHub Issues](https://github.com/wellitonklein/nps_plugin/issues).
 
-## Licença
-Este pacote é distribuído sob a licença MIT. Consulte o arquivo LICENSE para obter detalhes.
+## License
+This package is distributed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License). See the LICENSE file for details.
