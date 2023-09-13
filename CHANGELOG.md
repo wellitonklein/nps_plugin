@@ -1,3 +1,8 @@
+## 0.1.0
+
+* FEAT: Leaving all field labels and information changeable
+* STYLE: Leaving fields filled with color to highlight them
+
 ## 0.0.3
 
 * CHORE: Hosting images from the `README.md` file on github itself
