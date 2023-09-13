@@ -57,11 +57,11 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                     child: TextFormField(
                       keyboardType: TextInputType.multiline,
                       decoration: InputDecoration(
+                        filled: true,
                         hintText: widget.feedbackHintLabel ??
                             '(Optional) Leave feedback on what we can improve',
                         border: const OutlineInputBorder(),
                         counter: const SizedBox.shrink(),
-                        filled: true,
                       ),
                       onChanged: widget.onChangeFeedback,
                       maxLines: 2,
@@ -74,6 +74,7 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                       child: TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: const InputDecoration(
+                          filled: true,
                           labelText: 'Telefone',
                           hintText: '(Opcional)',
                           border: OutlineInputBorder(),
