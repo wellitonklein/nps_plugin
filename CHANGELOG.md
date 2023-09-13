@@ -1,3 +1,8 @@
+## 0.0.2
+
+* CHORE: Configuring environment to adapt package publication
+
+
 ## 0.0.1
 
-* CHORE: Primeira versao do package
+* CHORE: First version of the package
