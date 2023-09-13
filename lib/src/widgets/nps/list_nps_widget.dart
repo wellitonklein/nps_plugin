@@ -65,6 +65,7 @@ class ListNPSWidget extends StatelessWidget {
               ..insert(
                 0,
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(npsUnlikelyLabel ?? 'Unlikely'),
                     const SizedBox(width: 10),
@@ -74,6 +75,7 @@ class ListNPSWidget extends StatelessWidget {
               ..insert(
                 12,
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(width: 10),
                     Text(npsVeryLikelyLabel ?? 'Very likely'),
