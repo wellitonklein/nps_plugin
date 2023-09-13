@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 class ListNPSWidget extends StatelessWidget {
   final int npsSelected;
   final void Function(int) nextPageWithNPS;
+  final String? npsUnlikelyLabel;
+  final String? npsVeryLikelyLabel;
 
   const ListNPSWidget({
     super.key,
     required this.npsSelected,
     required this.nextPageWithNPS,
+    this.npsUnlikelyLabel,
+    this.npsVeryLikelyLabel,
   });
 
   @override
@@ -58,8 +62,26 @@ class ListNPSWidget extends StatelessWidget {
                 );
               },
             )
-              ..insert(0, const Text('Unlikely   '))
-              ..insert(12, const Text('   Very likely')),
+              ..insert(
+                0,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(npsUnlikelyLabel ?? 'Unlikely'),
+                    const SizedBox(width: 10),
+                  ],
+                ),
+              )
+              ..insert(
+                12,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(width: 10),
+                    Text(npsVeryLikelyLabel ?? 'Very likely'),
+                  ],
+                ),
+              ),
           ),
         ),
       ),

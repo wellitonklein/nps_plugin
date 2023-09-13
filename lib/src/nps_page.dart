@@ -8,6 +8,10 @@ class NPSPage extends StatefulWidget {
   final String npsTitle;
   final String feedbackTitle;
   final bool showInputPhone;
+  final String? npsUnlikelyLabel;
+  final String? npsVeryLikelyLabel;
+  final String? buttonLabel;
+  final String? feedbackHintLabel;
 
   const NPSPage({
     super.key,
@@ -15,6 +19,10 @@ class NPSPage extends StatefulWidget {
     required this.feedbackTitle,
     required this.npsTitle,
     this.showInputPhone = true,
+    this.npsUnlikelyLabel,
+    this.npsVeryLikelyLabel,
+    this.buttonLabel,
+    this.feedbackHintLabel,
   });
 
   @override
@@ -59,6 +67,8 @@ class _NPSPageState extends State<NPSPage> {
               nextPageWithNPS: store.jumpToNextPage,
               owner: widget.owner,
               npsTitle: widget.npsTitle,
+              npsUnlikelyLabel: widget.npsUnlikelyLabel,
+              npsVeryLikelyLabel: widget.npsVeryLikelyLabel,
             ),
             FeedbackFormWidget(
               showInputPhone: widget.showInputPhone,
@@ -67,6 +77,8 @@ class _NPSPageState extends State<NPSPage> {
               sendNPS: sendNPS,
               onChangeFeedback: store.feedbackChanged,
               onChangePhone: store.phoneChanged,
+              buttonLabel: widget.buttonLabel,
+              feedbackHintLabel: widget.feedbackHintLabel,
             ),
           ],
         );

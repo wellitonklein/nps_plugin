@@ -12,6 +12,8 @@ class FeedbackFormWidget extends StatefulWidget {
   final void Function(String value) onChangeFeedback;
   final void Function(String value) onChangePhone;
   final bool showInputPhone;
+  final String? buttonLabel;
+  final String? feedbackHintLabel;
 
   const FeedbackFormWidget({
     super.key,
@@ -21,6 +23,8 @@ class FeedbackFormWidget extends StatefulWidget {
     required this.onChangeFeedback,
     required this.onChangePhone,
     this.showInputPhone = true,
+    this.buttonLabel,
+    this.feedbackHintLabel,
   });
 
   @override
@@ -52,12 +56,12 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                     flex: 3,
                     child: TextFormField(
                       keyboardType: TextInputType.multiline,
-                      decoration: const InputDecoration(
-                        hintText:
-                            '(Optional) Leave feedback on what we can improve',
-                        border: OutlineInputBorder(),
-                        counter: SizedBox.shrink(),
+                      decoration: InputDecoration(
                         filled: true,
+                        hintText: widget.feedbackHintLabel ??
+                            '(Optional) Leave feedback on what we can improve',
+                        border: const OutlineInputBorder(),
+                        counter: const SizedBox.shrink(),
                       ),
                       onChanged: widget.onChangeFeedback,
                       maxLines: 2,
@@ -70,6 +74,7 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                       child: TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: const InputDecoration(
+                          filled: true,
                           labelText: 'Telefone',
                           hintText: '(Opcional)',
                           border: OutlineInputBorder(),
@@ -114,7 +119,7 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                           Size.fromHeight(50),
                         ),
                       ),
-                      child: const Text('To send'),
+                      child: Text(widget.buttonLabel ?? 'To send'),
                     ),
                   ),
                 ],

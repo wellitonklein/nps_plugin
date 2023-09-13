@@ -41,8 +41,9 @@ class HomePage extends StatelessWidget {
               npsTitle: 'So far, how likely are you to recommend the ',
               owner: 'Flutter',
               feedbackTitle: 'Leave your feedback',
-              showInputPhone: false,
+              showInputPhone: true,
             );
+
             if (response == null) return;
             log(response.toString());
           },
