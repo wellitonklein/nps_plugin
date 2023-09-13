@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 class ListNPSWidget extends StatelessWidget {
   final int npsSelected;
   final void Function(int) nextPageWithNPS;
+  final String? npsUnlikelyLabel;
+  final String? npsVeryLikelyLabel;
 
   const ListNPSWidget({
     super.key,
     required this.npsSelected,
     required this.nextPageWithNPS,
+    this.npsUnlikelyLabel,
+    this.npsVeryLikelyLabel,
   });
 
   @override
