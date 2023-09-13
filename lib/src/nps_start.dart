@@ -20,6 +20,10 @@ Future<NPSOutput?> npsStart(
   required String npsTitle,
   required String feedbackTitle,
   bool showInputPhone = true,
+  String? npsUnlikelyLabel,
+  String? npsVeryLikelyLabel,
+  String? buttonLabel,
+  String? feedbackHintLabel,
 }) {
   return showModalBottomSheet<NPSOutput>(
     context: context,
@@ -34,6 +38,10 @@ Future<NPSOutput?> npsStart(
         owner: owner,
         feedbackTitle: feedbackTitle,
         showInputPhone: showInputPhone,
+        npsUnlikelyLabel: npsUnlikelyLabel,
+        npsVeryLikelyLabel: npsVeryLikelyLabel,
+        buttonLabel: buttonLabel,
+        feedbackHintLabel: feedbackHintLabel,
       );
     },
   );

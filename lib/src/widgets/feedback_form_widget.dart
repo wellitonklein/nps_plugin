@@ -12,6 +12,8 @@ class FeedbackFormWidget extends StatefulWidget {
   final void Function(String value) onChangeFeedback;
   final void Function(String value) onChangePhone;
   final bool showInputPhone;
+  final String? buttonLabel;
+  final String? feedbackHintLabel;
 
   const FeedbackFormWidget({
     super.key,
@@ -21,6 +23,8 @@ class FeedbackFormWidget extends StatefulWidget {
     required this.onChangeFeedback,
     required this.onChangePhone,
     this.showInputPhone = true,
+    this.buttonLabel,
+    this.feedbackHintLabel,
   });
 
   @override
@@ -52,11 +56,11 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                     flex: 3,
                     child: TextFormField(
                       keyboardType: TextInputType.multiline,
-                      decoration: const InputDecoration(
-                        hintText:
+                      decoration: InputDecoration(
+                        hintText: widget.feedbackHintLabel ??
                             '(Optional) Leave feedback on what we can improve',
-                        border: OutlineInputBorder(),
-                        counter: SizedBox.shrink(),
+                        border: const OutlineInputBorder(),
+                        counter: const SizedBox.shrink(),
                         filled: true,
                       ),
                       onChanged: widget.onChangeFeedback,
@@ -114,7 +118,7 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                           Size.fromHeight(50),
                         ),
                       ),
-                      child: const Text('To send'),
+                      child: Text(widget.buttonLabel ?? 'To send'),
                     ),
                   ),
                 ],

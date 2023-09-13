@@ -62,8 +62,24 @@ class ListNPSWidget extends StatelessWidget {
                 );
               },
             )
-              ..insert(0, const Text('Unlikely   '))
-              ..insert(12, const Text('   Very likely')),
+              ..insert(
+                0,
+                Row(
+                  children: [
+                    Text(npsUnlikelyLabel ?? 'Unlikely'),
+                    const SizedBox(width: 10),
+                  ],
+                ),
+              )
+              ..insert(
+                12,
+                Row(
+                  children: [
+                    const SizedBox(width: 10),
+                    Text(npsVeryLikelyLabel ?? 'Very likely'),
+                  ],
+                ),
+              ),
           ),
         ),
       ),

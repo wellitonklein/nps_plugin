@@ -8,6 +8,8 @@ class NPSFormWidget extends StatelessWidget {
   final String npsTitle;
   final int currentNPS;
   final void Function(int) nextPageWithNPS;
+  final String? npsUnlikelyLabel;
+  final String? npsVeryLikelyLabel;
 
   const NPSFormWidget({
     super.key,
@@ -15,6 +17,8 @@ class NPSFormWidget extends StatelessWidget {
     required this.nextPageWithNPS,
     required this.npsTitle,
     required this.owner,
+    this.npsUnlikelyLabel,
+    this.npsVeryLikelyLabel,
   });
 
   @override
@@ -32,6 +36,8 @@ class NPSFormWidget extends StatelessWidget {
           ListNPSWidget(
             npsSelected: currentNPS,
             nextPageWithNPS: nextPageWithNPS,
+            npsUnlikelyLabel: npsUnlikelyLabel,
+            npsVeryLikelyLabel: npsVeryLikelyLabel,
           ),
         ],
       ),
