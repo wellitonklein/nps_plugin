@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class SubtitleFeedbackWidget extends StatelessWidget {
-  final String feedbackTitle;
+  final String? feedbackTitle;
 
   const SubtitleFeedbackWidget({
     super.key,
-    required this.feedbackTitle,
+    this.feedbackTitle,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      feedbackTitle,
+      feedbackTitle!,
       overflow: TextOverflow.ellipsis,
       textAlign: TextAlign.center,
       style: Theme.of(context).textTheme.titleLarge,
