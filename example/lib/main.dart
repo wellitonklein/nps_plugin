@@ -60,15 +60,13 @@ class HomePage extends StatelessWidget {
               maxLines: 2,
             );
 
-            final response = await npsStart(
+            final (:nps, :message, :phone) = await npsStart(
               context,
               npsTitle: npsTitle,
-              feedbackTitle: 'Leave your feedback',
               showInputPhone: true,
             );
 
-            if (response == null) return;
-            log(response.toString());
+            log('NPS: $nps, Message: $message, Phone: $phone');
           },
         ),
       ),
