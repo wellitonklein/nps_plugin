@@ -5,8 +5,8 @@ import 'widgets/widgets.dart';
 
 class NPSPage extends StatefulWidget {
   final Text npsTitle;
-  final String feedbackTitle;
   final bool showInputPhone;
+  final String? feedbackTitle;
   final String? npsUnlikelyLabel;
   final String? npsVeryLikelyLabel;
   final String? buttonLabel;
@@ -15,7 +15,7 @@ class NPSPage extends StatefulWidget {
 
   const NPSPage({
     super.key,
-    required this.feedbackTitle,
+    this.feedbackTitle,
     required this.npsTitle,
     this.showInputPhone = true,
     this.npsUnlikelyLabel,

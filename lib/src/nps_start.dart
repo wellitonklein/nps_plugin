@@ -14,24 +14,28 @@ typedef NPSOutput = ({
 ///
 /// [feedbackTitle] - Descrição que irá aparecer no feedback
 
-Future<NPSOutput?> npsStart(
+Future<NPSOutput> npsStart(
   BuildContext context, {
   required Text npsTitle,
-  required String feedbackTitle,
+  String? feedbackTitle,
   bool showInputPhone = true,
   String? npsUnlikelyLabel,
   String? npsVeryLikelyLabel,
   String? buttonLabel,
   String? feedbackHintLabel,
   String? phoneHintLabel,
-}) {
-  return showModalBottomSheet<NPSOutput>(
+}) async {
+  final isDesktop = MediaQuery.sizeOf(context).width > 800;
+
+  final response = await showModalBottomSheet<NPSOutput>(
     context: context,
     useSafeArea: true,
     isDismissible: false,
     backgroundColor: Theme.of(context).cardColor,
     enableDrag: false,
-    constraints: const BoxConstraints(maxHeight: 200),
+    constraints: BoxConstraints(
+      maxHeight: isDesktop ? 200 : 300,
+    ),
     builder: (context) {
       return NPSPage(
         npsTitle: npsTitle,
@@ -45,4 +49,7 @@ Future<NPSOutput?> npsStart(
       );
     },
   );
+
+  if (response == null) return (nps: -1, message: '', phone: '');
+  return response;
 }
