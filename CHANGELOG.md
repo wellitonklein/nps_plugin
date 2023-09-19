@@ -1,3 +1,9 @@
+## 0.1.1
+
+* FEAT: Receiving widget from outside to design the review title
+* FEAT: Responsive for mobile devices
+* FIX: Being able to provide a modifiable hint to the phone
+
 ## 0.1.0
 
 * FEAT: Leaving all field labels and information changeable
