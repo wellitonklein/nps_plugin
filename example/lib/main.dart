@@ -20,6 +20,9 @@ class AppWidget extends StatelessWidget {
           seedColor: Colors.blue,
           brightness: Brightness.light,
         ),
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(),
+        ),
       ),
       home: const HomePage(),
     );
@@ -36,16 +39,34 @@ class HomePage extends StatelessWidget {
         child: FilledButton(
           child: const Text('Show NPS'),
           onPressed: () async {
-            final response = await npsStart(
+            final npsTitle = Text.rich(
+              TextSpan(
+                text: 'So far, how likely are you to recommend ',
+                children: [
+                  TextSpan(
+                    text: 'NPS Plugin',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 25,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                  const TextSpan(text: ' to a friend?'),
+                ],
+              ),
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleLarge,
+              maxLines: 2,
+            );
+
+            final (:nps, :message, :phone) = await npsStart(
               context,
-              npsTitle: 'So far, how likely are you to recommend the ',
-              owner: 'Flutter',
-              feedbackTitle: 'Leave your feedback',
+              npsTitle: npsTitle,
               showInputPhone: true,
             );
 
-            if (response == null) return;
-            log(response.toString());
+            log('NPS: $nps, Message: $message, Phone: $phone');
           },
         ),
       ),
