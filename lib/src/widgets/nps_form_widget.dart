@@ -24,18 +24,26 @@ class NPSFormWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
-        vertical: 10,
+        vertical: 20,
       ),
-      child: Column(
-        children: [
-          const TitleWidget(previusPage: null),
-          npsTitle,
-          const SizedBox(height: 20),
-          ListNPSWidget(
-            npsSelected: currentNPS,
-            nextPageWithNPS: nextPageWithNPS,
-            npsUnlikelyLabel: npsUnlikelyLabel,
-            npsVeryLikelyLabel: npsVeryLikelyLabel,
+      child: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const TitleWidget(previusPage: null),
+                npsTitle,
+                const SizedBox(height: 20),
+                ListNPSWidget(
+                  npsSelected: currentNPS,
+                  nextPageWithNPS: nextPageWithNPS,
+                  npsUnlikelyLabel: npsUnlikelyLabel,
+                  npsVeryLikelyLabel: npsVeryLikelyLabel,
+                ),
+              ],
+            ),
           ),
         ],
       ),
