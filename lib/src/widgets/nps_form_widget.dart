@@ -4,8 +4,7 @@ import 'nps/nps.dart';
 import 'title_widget.dart';
 
 class NPSFormWidget extends StatelessWidget {
-  final String owner;
-  final String npsTitle;
+  final Text npsTitle;
   final int currentNPS;
   final void Function(int) nextPageWithNPS;
   final String? npsUnlikelyLabel;
@@ -14,9 +13,8 @@ class NPSFormWidget extends StatelessWidget {
   const NPSFormWidget({
     super.key,
     required this.currentNPS,
-    required this.nextPageWithNPS,
     required this.npsTitle,
-    required this.owner,
+    required this.nextPageWithNPS,
     this.npsUnlikelyLabel,
     this.npsVeryLikelyLabel,
   });
@@ -31,7 +29,7 @@ class NPSFormWidget extends StatelessWidget {
       child: Column(
         children: [
           const TitleWidget(previusPage: null),
-          SubtitleNPSWidget(npsTitle: npsTitle, owner: owner),
+          npsTitle,
           const SizedBox(height: 20),
           ListNPSWidget(
             npsSelected: currentNPS,

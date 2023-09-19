@@ -14,6 +14,7 @@ class FeedbackFormWidget extends StatefulWidget {
   final bool showInputPhone;
   final String? buttonLabel;
   final String? feedbackHintLabel;
+  final String? phoneHintLabel;
 
   const FeedbackFormWidget({
     super.key,
@@ -25,6 +26,7 @@ class FeedbackFormWidget extends StatefulWidget {
     this.showInputPhone = true,
     this.buttonLabel,
     this.feedbackHintLabel,
+    this.phoneHintLabel,
   });
 
   @override
@@ -60,7 +62,6 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                         filled: true,
                         hintText: widget.feedbackHintLabel ??
                             '(Optional) Leave feedback on what we can improve',
-                        border: const OutlineInputBorder(),
                         counter: const SizedBox.shrink(),
                       ),
                       onChanged: widget.onChangeFeedback,
@@ -73,11 +74,9 @@ class _FeedbackFormWidgetState extends State<FeedbackFormWidget> {
                     Expanded(
                       child: TextFormField(
                         keyboardType: TextInputType.phone,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           filled: true,
-                          labelText: 'Telefone',
-                          hintText: '(Opcional)',
-                          border: OutlineInputBorder(),
+                          hintText: widget.phoneHintLabel ?? '(Optional) Phone',
                         ),
                         autovalidateMode: AutovalidateMode.always,
                         onChanged: (value) {

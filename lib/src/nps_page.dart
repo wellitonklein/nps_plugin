@@ -4,18 +4,17 @@ import 'nps_store.dart';
 import 'widgets/widgets.dart';
 
 class NPSPage extends StatefulWidget {
-  final String owner;
-  final String npsTitle;
+  final Text npsTitle;
   final String feedbackTitle;
   final bool showInputPhone;
   final String? npsUnlikelyLabel;
   final String? npsVeryLikelyLabel;
   final String? buttonLabel;
   final String? feedbackHintLabel;
+  final String? phoneHintLabel;
 
   const NPSPage({
     super.key,
-    required this.owner,
     required this.feedbackTitle,
     required this.npsTitle,
     this.showInputPhone = true,
@@ -23,6 +22,7 @@ class NPSPage extends StatefulWidget {
     this.npsVeryLikelyLabel,
     this.buttonLabel,
     this.feedbackHintLabel,
+    this.phoneHintLabel,
   });
 
   @override
@@ -65,7 +65,6 @@ class _NPSPageState extends State<NPSPage> {
             NPSFormWidget(
               currentNPS: store.currentNPS,
               nextPageWithNPS: store.jumpToNextPage,
-              owner: widget.owner,
               npsTitle: widget.npsTitle,
               npsUnlikelyLabel: widget.npsUnlikelyLabel,
               npsVeryLikelyLabel: widget.npsVeryLikelyLabel,
@@ -79,6 +78,7 @@ class _NPSPageState extends State<NPSPage> {
               onChangePhone: store.phoneChanged,
               buttonLabel: widget.buttonLabel,
               feedbackHintLabel: widget.feedbackHintLabel,
+              phoneHintLabel: widget.phoneHintLabel,
             ),
           ],
         );

@@ -16,14 +16,14 @@ typedef NPSOutput = ({
 
 Future<NPSOutput?> npsStart(
   BuildContext context, {
-  required String owner,
-  required String npsTitle,
+  required Text npsTitle,
   required String feedbackTitle,
   bool showInputPhone = true,
   String? npsUnlikelyLabel,
   String? npsVeryLikelyLabel,
   String? buttonLabel,
   String? feedbackHintLabel,
+  String? phoneHintLabel,
 }) {
   return showModalBottomSheet<NPSOutput>(
     context: context,
@@ -35,13 +35,13 @@ Future<NPSOutput?> npsStart(
     builder: (context) {
       return NPSPage(
         npsTitle: npsTitle,
-        owner: owner,
         feedbackTitle: feedbackTitle,
         showInputPhone: showInputPhone,
         npsUnlikelyLabel: npsUnlikelyLabel,
         npsVeryLikelyLabel: npsVeryLikelyLabel,
         buttonLabel: buttonLabel,
         feedbackHintLabel: feedbackHintLabel,
+        phoneHintLabel: phoneHintLabel,
       );
     },
   );
