@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'nps_store.dart';
 import 'widgets/widgets.dart';
 
@@ -11,6 +12,7 @@ class NPSPage extends StatefulWidget {
   final String? buttonLabel;
   final String? feedbackHintLabel;
   final String? phoneHintLabel;
+
   const NPSPage({
     super.key,
     this.feedbackTitle,
@@ -22,12 +24,14 @@ class NPSPage extends StatefulWidget {
     this.feedbackHintLabel,
     this.phoneHintLabel,
   });
+
   @override
   State<NPSPage> createState() => _NPSPageState();
 }
 
 class _NPSPageState extends State<NPSPage> {
   late final NpsStore store;
+
   @override
   void initState() {
     store = NpsStore();
@@ -41,6 +45,7 @@ class _NPSPageState extends State<NPSPage> {
   }
 
   bool isConfirmationDialogOpen = false;
+
   Future<void> showConfirmationDialog() async {
     return showDialog<void>(
       context: context,
@@ -65,9 +70,20 @@ class _NPSPageState extends State<NPSPage> {
             ),
             OutlinedButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Vai fechar o AlertDialog
-                Navigator.of(context).pop(); // Vai fechar o modal de NPS
-                store.jumpToPreviusPage();
+                Navigator.of(context).pop(
+                  (
+                    nps: store.currentNPS,
+                    message: store.feedback,
+                    phone: store.phone,
+                  ),
+                );
+                Navigator.of(context).pop(
+                  (
+                    nps: store.currentNPS,
+                    message: store.feedback,
+                    phone: store.phone,
+                  ),
+                );
                 isConfirmationDialogOpen = false;
               },
               child: const Text('To close'),
@@ -84,17 +100,15 @@ class _NPSPageState extends State<NPSPage> {
       listenable: store,
       builder: (context, snapshot) {
         void sendNPS() {
-          // Vai verificar se o campo de comentário e telefone estão vazios
           bool isCommentEmpty = store.feedback.trim().isEmpty;
           bool isPhoneEmpty = store.phone.trim().isEmpty;
-          // Se o campo de comentário ou telefone estiverem vazios, exibirá a confirmação
+
           if (isCommentEmpty &&
               isPhoneEmpty &&
               ((store.currentNPS >= 0 && store.currentNPS <= 3) ||
                   (store.currentNPS >= 9 && store.currentNPS <= 10))) {
             showConfirmationDialog();
           } else {
-            // Caso contrário, fechará a página e retornará os dados
             Navigator.of(context).pop(
               (
                 nps: store.currentNPS,
