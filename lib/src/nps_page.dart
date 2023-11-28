@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'nps_store.dart';
 import 'widgets/widgets.dart';
 
@@ -12,7 +11,6 @@ class NPSPage extends StatefulWidget {
   final String? buttonLabel;
   final String? feedbackHintLabel;
   final String? phoneHintLabel;
-
   const NPSPage({
     super.key,
     this.feedbackTitle,
@@ -24,14 +22,12 @@ class NPSPage extends StatefulWidget {
     this.feedbackHintLabel,
     this.phoneHintLabel,
   });
-
   @override
   State<NPSPage> createState() => _NPSPageState();
 }
 
 class _NPSPageState extends State<NPSPage> {
   late final NpsStore store;
-
   @override
   void initState() {
     store = NpsStore();
@@ -44,19 +40,69 @@ class _NPSPageState extends State<NPSPage> {
     super.dispose();
   }
 
+  bool isConfirmationDialogOpen = false;
+  Future<void> showConfirmationDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Confirmation'),
+          content: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.4,
+            child: const Text(
+              'Your opinion is very important! If you wish, share your comment and your phone number, as this will help us improve our services and strengthen our partnership. We sincerely thank you for your contribution!',
+            ),
+          ),
+          actions: [
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                store.jumpToNextPage(store.currentNPS);
+                isConfirmationDialogOpen = true;
+              },
+              child: const Text('Leave Comment'),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Vai fechar o AlertDialog
+                Navigator.of(context).pop(); // Vai fechar o modal de NPS
+                store.jumpToPreviusPage();
+                isConfirmationDialogOpen = false;
+              },
+              child: const Text('To close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
       listenable: store,
       builder: (context, snapshot) {
         void sendNPS() {
-          Navigator.of(context).pop(
-            (
-              nps: store.currentNPS,
-              message: store.feedback,
-              phone: store.phone,
-            ),
-          );
+          // Vai verificar se o campo de comentário e telefone estão vazios
+          bool isCommentEmpty = store.feedback.trim().isEmpty;
+          bool isPhoneEmpty = store.phone.trim().isEmpty;
+          // Se o campo de comentário ou telefone estiverem vazios, exibirá a confirmação
+          if (isCommentEmpty &&
+              isPhoneEmpty &&
+              ((store.currentNPS >= 0 && store.currentNPS <= 3) ||
+                  (store.currentNPS >= 9 && store.currentNPS <= 10))) {
+            showConfirmationDialog();
+          } else {
+            // Caso contrário, fechará a página e retornará os dados
+            Navigator.of(context).pop(
+              (
+                nps: store.currentNPS,
+                message: store.feedback,
+                phone: store.phone,
+              ),
+            );
+          }
         }
 
         return PageView(
