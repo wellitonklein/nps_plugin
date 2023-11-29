@@ -17,7 +17,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurpleAccent,
+          seedColor: Colors.blue,
           brightness: Brightness.light,
         ),
         inputDecorationTheme: const InputDecorationTheme(

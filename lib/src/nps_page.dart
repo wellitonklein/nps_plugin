@@ -52,11 +52,11 @@ class _NPSPageState extends State<NPSPage> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Confirmation'),
+          title: const Text('Confirmação'),
           content: SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
             child: const Text(
-              'Your opinion is very important! If you wish, share your comment and your phone number, as this will help us improve our services and strengthen our partnership. We sincerely thank you for your contribution!',
+              'Sua opinião é muito importante! Se desejar, compartilhe seu comentário e seu telefone, pois isso nos ajudará a melhorar nossos serviços e fortalecer nossa parceria. Agradecemos sinceramente pela sua contribuição!',
             ),
           ),
           actions: [
@@ -66,7 +66,7 @@ class _NPSPageState extends State<NPSPage> {
                 store.jumpToNextPage(store.currentNPS);
                 isConfirmationDialogOpen = true;
               },
-              child: const Text('Leave Comment'),
+              child: const Text('Deixe um comentário'),
             ),
             OutlinedButton(
               onPressed: () {
@@ -86,7 +86,7 @@ class _NPSPageState extends State<NPSPage> {
                 );
                 isConfirmationDialogOpen = false;
               },
-              child: const Text('To close'),
+              child: const Text('Fechar'),
             ),
           ],
         );
