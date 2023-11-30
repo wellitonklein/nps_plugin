@@ -1,3 +1,7 @@
+## 0.2.0
+
+* FEAT: Suggesting that you give feedback if rating is 0 - 3 or 9 - 10
+
 ## 0.1.1
 
 * FEAT: Receiving widget from outside to design the review title
