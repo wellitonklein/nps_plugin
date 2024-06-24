@@ -1,3 +1,7 @@
+## 1.0.0
+
+* FEAT: Upgrade compatibility to Flutter ^3.22.2
+
 ## 0.2.0
 
 * FEAT: Suggesting that you give feedback if rating is 0 - 3 or 9 - 10

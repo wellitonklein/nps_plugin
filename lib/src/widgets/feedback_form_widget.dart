@@ -289,9 +289,7 @@ class _SendButtonWidget extends StatelessWidget {
         sendNPS();
       },
       style: const ButtonStyle(
-        minimumSize: MaterialStatePropertyAll(
-          Size.fromHeight(50),
-        ),
+        minimumSize: WidgetStatePropertyAll(Size.fromHeight(50)),
       ),
       child: Text(buttonLabel ?? 'To send'),
     );
